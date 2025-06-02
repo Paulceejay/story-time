@@ -16,11 +16,14 @@ module.exports = {
           black: '#010100',
           text: '#ECEDEE',
           background: '#222020',
+          formBtn: "#181717",
+          lightGray: "#C0C0C0"
         },
       },
       fontFamily: {
         'Pacifico': ['Pacifico', 'sans-serif'],
         'Montserrat': ['Montserrat', 'sans-serif'],
+        'MontserratAlt': ['MontserratAlt', 'Montserrat'],
       },
     },
   },

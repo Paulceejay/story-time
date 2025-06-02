@@ -8,6 +8,7 @@ export default function RootLayout() {
   const [loaded] = useFonts({
     Pacifico: require('../assets/fonts/Pacifico-Regular.ttf'),
     Montserrat: require('../assets/fonts/Montserrat-VariableFont_wght.ttf'),
+    MontserratAlt: require('../assets/fonts/MontserratAlternates-Bold.ttf'),
   });
 
   if (!loaded) {

@@ -8,9 +8,9 @@ const color = Colors
 
 const SplashScreen = () => {
   return (
-    <BackgroundImage bgOpacity="opacity-[0.5]">
+    <BackgroundImage className="opacity-[0.5]">
       <View className='flex-1 justify-center items-center'>
-       <Logo />
+       <Logo className="rounded-[23px] w-16 h-16" />
         <Text className='text-[28px] font-normal text-dark-white font-Pacifico'>Bed Time Story</Text>
       </View>
     </BackgroundImage>
