@@ -6,13 +6,13 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 const image = require("../../../assets/images/welcome-img.png");
 
 type Props = {
-  children: string | JSX.Element,
-  className: string
+  children: string | JSX.Element ,
+  className: string,
 }
 
 const BackgroundImage = ({ children, className }: Props) => {
   return (
-    <View className="flex-1">
+    
       <ImageBackground
         source={image}
         resizeMode="cover"
@@ -20,7 +20,7 @@ const BackgroundImage = ({ children, className }: Props) => {
       >
         {children}
       </ImageBackground>
-    </View>
+   
   );
 };
 

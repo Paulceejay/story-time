@@ -1,12 +1,20 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useEffect} from 'react'
 import BackgroundImage from '../components/ui/BackgroundImage'
-import { Colors } from '../constants/Colors'
 import Logo from '../components/Logo'
 
-const color = Colors
 
-const SplashScreen = () => {
+const SplashScreen = ({ onFinish }: Void) => {
+
+  useEffect(() => {
+    // Simulate loading (e.g., API, assets)
+    const timer = setTimeout(() => {
+      onFinish(); // Callback to tell parent we're done
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <BackgroundImage className="opacity-[0.5]">
       <View className='flex-1 justify-center items-center'>

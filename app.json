@@ -8,6 +8,11 @@
     "scheme": "storytime",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/welcome-img.png",
+      "resizeMode": "cover", 
+      "backgroundColor": "#000000"
+    },
     "ios": {
       "supportsTablet": true
     },

@@ -9,6 +9,7 @@ export default function RootLayout() {
     Pacifico: require('../assets/fonts/Pacifico-Regular.ttf'),
     Montserrat: require('../assets/fonts/Montserrat-VariableFont_wght.ttf'),
     MontserratAlt: require('../assets/fonts/MontserratAlternates-Bold.ttf'),
+    Pompiere: require('../assets/fonts/Pompiere-Regular.ttf'),
   });
 
   if (!loaded) {

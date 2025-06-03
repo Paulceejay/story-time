@@ -24,10 +24,10 @@ module.exports = {
         'Pacifico': ['Pacifico', 'sans-serif'],
         'Montserrat': ['Montserrat', 'sans-serif'],
         'MontserratAlt': ['MontserratAlt', 'Montserrat'],
+        'Pompiere': ['Pompiere', 'Pacifico'],
       },
     },
   },
   plugins: [],
   
 }
-

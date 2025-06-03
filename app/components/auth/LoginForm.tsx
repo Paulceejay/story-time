@@ -17,6 +17,7 @@ const LoginForm = () => {
            {/* Text input for Password */}
         <TextInputForm textInputTitle="Enter Password" />
 
+{/* Login */}
         <View className="bg-dark-primary w-ful h-16 rounded-full my-2">
           <TouchableOpacity className="flex-1 justify-center items-center">
             <Text className="text-dark-white font-MontserratAlt font-normal text-xl">

@@ -1,7 +1,11 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Logo = ({className}: string) => {
+type Props = {
+  className: string
+}
+
+const Logo = ({className}: Props) => {
   return (
     <View className={`bg-dark-primary ${className}`}>
    <View className='flex-1 justify-center items-center'>
