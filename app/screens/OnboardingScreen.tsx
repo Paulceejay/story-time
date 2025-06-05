@@ -1,5 +1,5 @@
 import { View, Text, ScrollView } from "react-native";
-import React, { useState} from "react", "react";
+import React, { useState} from "react";
 import SignupForm from "../components/auth/SignupForm";
 import BackgroundImage from "../components/ui/BackgroundImage";
 import Container from "../components/ui/Container";
@@ -8,7 +8,7 @@ import Logo from "../components/Logo";
 import Welcome from "../components/ui/Welcome";
 
 const OnboardingScreen = () => {
- 
+ const [isStarted, setIsStarted] = useState(false)
   
   return (
     <BackgroundImage className="opacity-[0.7]">
