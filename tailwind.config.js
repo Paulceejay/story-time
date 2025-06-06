@@ -17,7 +17,8 @@ module.exports = {
           text: '#ECEDEE',
           background: '#222020',
           formBtn: "#181717",
-          lightGray: "#C0C0C0"
+          lightGray: "#C0C0C0",
+          formBg: "#FFFFFF0A",
         },
       },
       fontFamily: {
@@ -28,6 +29,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: ['react-native-reanimated/plugin'],
   
 }

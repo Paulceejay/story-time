@@ -7,7 +7,7 @@ import Logo from '../components/Logo'
 const SplashScreen = ({ onFinish }: Void) => {
 
   useEffect(() => {
-    // Simulate loading (e.g., API, assets)
+    // Simulate loading splashscrreen
     const timer = setTimeout(() => {
       onFinish(); // Callback to tell parent we're done
     }, 2000);
@@ -16,7 +16,7 @@ const SplashScreen = ({ onFinish }: Void) => {
   }, []);
 
   return (
-    <BackgroundImage className="opacity-[0.5]">
+    <BackgroundImage className="">
       <View className='flex-1 justify-center items-center'>
        <Logo className="rounded-[23px] w-16 h-16" />
         <Text className='text-[28px] font-normal text-dark-white font-Pacifico'>Bed Time Story</Text>

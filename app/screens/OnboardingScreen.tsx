@@ -1,17 +1,13 @@
 import { View, Text, ScrollView } from "react-native";
-import React, { useState} from "react";
-import SignupForm from "../components/auth/SignupForm";
+import React from "react";
 import BackgroundImage from "../components/ui/BackgroundImage";
 import Container from "../components/ui/Container";
-import LoginForm from "../components/auth/LoginForm";
 import Logo from "../components/Logo";
-import Welcome from "../components/ui/Welcome";
 
-const OnboardingScreen = () => {
- const [isStarted, setIsStarted] = useState(false)
+const OnboardingScreen = ({children}: any) => {
   
   return (
-    <BackgroundImage className="opacity-[0.7]">
+    <BackgroundImage className="">
       <View className="flex-1 justify-center">
       <View className="absolute top-12 left-5 right-0 items-center flex-row">
         <Logo className="w-10 h-10 rounded-xl" />
@@ -20,8 +16,8 @@ const OnboardingScreen = () => {
         </Text>
       </View>
 
-      <Container className="absolute bottom-10 left-0 right-0">
-        <Welcome />
+      <Container className="">
+       {children}
       </Container>
       </View>
     </BackgroundImage>
