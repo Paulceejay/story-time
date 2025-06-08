@@ -25,6 +25,7 @@ const SignupForm = () => {
       options: {
         data: {
           full_name: fullname,
+          avatar_url: ''
         },
       },
     });
