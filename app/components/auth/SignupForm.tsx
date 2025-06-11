@@ -18,7 +18,17 @@ const SignupForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const validateName = () => {
+    if (fullname.trim().length < 5) {
+      setErrorMessage('Please enter a valid full name');
+      return false;
+    }
+    setErrorMessage('');
+    return true;
+  };
+
   const SubmitHandler = async () => {
+    if (!validateName()) return;
     const { data: userData, error: signUpError } = await supabase.auth.signUp({
       email,
       password,
@@ -30,9 +40,12 @@ const SignupForm = () => {
       },
     });
 
+    if(password !== confirmPassword){
+      return
+    }
+
     if (signUpError) {
       setErrorMessage(signUpError.message); // Show Supabase error
-
       setTimeout(() => {
         setErrorMessage("");
       }, 4000);
@@ -92,7 +105,7 @@ const SignupForm = () => {
           </TouchableOpacity>
         </View>
 
-        {/* if sif password do nat match */}
+        {/* if both password do nat match */}
         {password !== confirmPassword && (
           <Text className="text-xs text-red-500 font-medium text-center">
             Your passwords do not match

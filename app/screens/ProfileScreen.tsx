@@ -14,14 +14,17 @@ import { decode } from "base64-arraybuffer";
 import LogoutComponent from "../components/ui/LogoutComponent";
 import SavedStories from "../components/ui/SavedStories";
 import UpdateSettings from "../components/ui/UpdateSettings";
+import LoadingComponent from "../components/ui/LoadingComponent";
 
 const ProfileScreen = () => {
   const [user, setUser] = useState<any>(null);
   const [profile, setProfile] = useState<any>(null);
   const [uploading, setUploading] = useState(false);
+  const [loading, setLaoading] = useState(true)
 
   // Fetch user profile
   useEffect(() => {
+    setLaoading(true)
     const fetchProfile = async () => {
       try {
         const {
@@ -60,7 +63,8 @@ const ProfileScreen = () => {
         }
       } catch (error) {
         Alert.alert("Error", "Failed to load profile");
-        console.error("Profile fetch error:", error);
+      }finally {
+        setLaoading(false)
       }
     };
 
@@ -145,7 +149,6 @@ const ProfileScreen = () => {
 
       Alert.alert("Success", "Avatar updated successfully!");
     } catch (error: any) {
-      console.error("Avatar upload error:", error);
       Alert.alert(
         "Upload failed",
         error.message || "Failed to upload avatar. Please try again."
@@ -155,6 +158,10 @@ const ProfileScreen = () => {
     }
   };
 
+  if(loading){
+    return  <LoadingComponent />
+  }
+  
   return (
     <View className="py-8">
       {/* header section */}
