@@ -43,7 +43,7 @@ const SignupForm = () => {
   };
 
   return (
-    <View className="">
+    <View className="mt-10">
       <Text className="text-dark-white text-[26px] font-semibold font-MontserratAlt">
         Create Account
       </Text>

@@ -15,9 +15,9 @@ const LogoutComponent = () => {
     }
   };
   return (
-    <View className="flex-1">
+    <View className="flex mt-20">
       <TouchableOpacity
-        className="bg-red-500 py-3 px-6 rounded-lg"
+        className="bg-dark-primary py-3 px-6 rounded-full"
         onPress={handleLogout}
       >
         <Text className="text-white text-center font-semibold">Log Out</Text>

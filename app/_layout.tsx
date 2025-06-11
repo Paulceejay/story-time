@@ -27,24 +27,24 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={DarkTheme}>
       <Stack>
-        {/* Tabs shown only when user is authenticated */}
-        {isAuthenticated && (
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        )}
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 
-        {/* Auth routes handled normally (e.g., _auth/login) */}
-        {!isAuthenticated && (
-          <Stack.Screen
-            name="_auth"
-            options={{
-              headerShown: false,
-              presentation: "card",
-            }}
-          />
-        )}
+        <Stack.Screen
+          name="_auth"
+          options={{
+            headerShown: false,
+            presentation: "card",
+          }}
+        />
 
-        {/* Catch-all 404 route */}
         <Stack.Screen name="+not-found" />
+        <Stack.Screen
+          name="_profile"
+          options={{
+            headerShown: false,
+            presentation: "card",
+          }}
+        />
       </Stack>
 
       <StatusBar style="auto" />
