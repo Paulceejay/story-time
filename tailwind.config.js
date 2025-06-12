@@ -19,6 +19,7 @@ module.exports = {
           formBtn: "#181717",
           lightGray: "#C0C0C0",
           formBg: "#FFFFFF0A",
+          bgSearch: "#0A0908"
         },
       },
       fontFamily: {
