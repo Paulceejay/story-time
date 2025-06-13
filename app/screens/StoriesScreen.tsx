@@ -1,4 +1,4 @@
-import { View, Text, TextInput, FlatList, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, TextInput, FlatList, TouchableOpacity, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
 import Feather from "@expo/vector-icons/Feather";
 import { storyTypeDatas } from "../data/storyType";
@@ -6,7 +6,7 @@ import StoryCategory from "../components/ui/StoryCategory";
 
 const StoriesScreen = () => {
   return (
-   <SafeAreaView>
+   <ScrollView>
      <View className="py-8 px-6">
       {/* header section */}
       <View className="my-5 flex-row justify-center gap-1">
@@ -36,7 +36,7 @@ const StoriesScreen = () => {
       </View>
    
     </View>
-   </SafeAreaView>
+   </ScrollView>
   );
 };
 {/* <FlatList

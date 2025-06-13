@@ -32,7 +32,7 @@ const StoryCategory = () => {
 
 
   return (
-   <View>
+   <View className="mt-2">
      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {categories.map(StoryCategoriesButton )}
     </ScrollView>
@@ -41,8 +41,9 @@ const StoryCategory = () => {
     <FlatList
         data={storiesData[activeCategory]}
         renderItem={StoriesItem}
-        keyExtractor={item => item.id}
-        
+        numColumns={2}
+        contentContainerStyle={{ padding: 10 }}
+      columnWrapperStyle={{ justifyContent: 'space-between', marginBottom: 18, marginTop: 10 }}
       />
    </View>
   );
