@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+      },
       colors: {
         dark: {
           primary: '#E28600',

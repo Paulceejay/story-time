@@ -15,9 +15,9 @@ const StoriesItem: ListRenderItem<Story> = ({ item }) => {
         source={item.image}
         resizeMode="cover"
         height={100}
-        className="bg-[#D9D9D9] justify-center items-center w-full h-32 rounded-t-[45px]"
+        className="bg-[#D9D9D9] justify-center items-center w-full h-32 rounded-t-[55px]"
       />
-      <View className="bg-[#222020] px-3 py-5 rounded-b-[45px]">
+      <View className="bg-[#222020] px-3 py-5 rounded-b-[55px]">
         <Text className="text-white text-base font-bold font-MontserratAlt text-center mb-1">
           {item.title}
         </Text>

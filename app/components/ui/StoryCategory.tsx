@@ -9,9 +9,13 @@ import React, { useState } from "react";
 import { Story, storiesData } from "@/app/data/storiesData";
 import StoriesItem from "./StoriesItem";
 
+type Props = {
+  popular: string
+}
+
 const categories = ["scary", "sad", "funny", "fantasy", "jokes"];
 
-const StoryCategory = () => {
+const StoryCategory = ({popular}: Props ) => {
   const [activeCategory, setActiveCategory] = useState("sad");
 
   const StoryCategoriesButton = (cat: string) => {
@@ -32,17 +36,19 @@ const StoryCategory = () => {
 
 
   return (
-   <View className="mt-2">
+   <View className="my-5">
+     <View className="flex-row mb-5 gap-2">
+      <Text className={`text-xl text-dark-white font-semibold font-MontserratAlt mr-2 ${popular}`}>Popular</Text>
      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {categories.map(StoryCategoriesButton )}
     </ScrollView>
+     </View>
 
     {/* Stories List */}
     <FlatList
         data={storiesData[activeCategory]}
         renderItem={StoriesItem}
         numColumns={2}
-        contentContainerStyle={{ padding: 10 }}
       columnWrapperStyle={{ justifyContent: 'space-between', marginBottom: 18, marginTop: 10 }}
       />
    </View>

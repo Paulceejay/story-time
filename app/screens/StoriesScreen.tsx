@@ -6,8 +6,7 @@ import StoryCategory from "../components/ui/StoryCategory";
 
 const StoriesScreen = () => {
   return (
-   <ScrollView>
-     <View className="py-8 px-6">
+   <ScrollView className="py-8 px-6">
       {/* header section */}
       <View className="my-5 flex-row justify-center gap-1">
         <Text className="text-dark-white text-2xl font-Pacifico font-normal mr-px">
@@ -32,10 +31,10 @@ const StoriesScreen = () => {
       </View>
 
       <View>
-        <StoryCategory />
+        <StoryCategory popular='hidden' />
       </View>
    
-    </View>
+   
    </ScrollView>
   );
 };
