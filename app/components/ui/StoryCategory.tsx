@@ -10,12 +10,12 @@ import { Story, storiesData } from "@/app/data/storiesData";
 import StoriesItem from "./StoriesItem";
 
 type Props = {
-  popular: string
-}
+  popular: string;
+};
 
 const categories = ["scary", "sad", "funny", "fantasy", "jokes"];
 
-const StoryCategory = ({popular}: Props ) => {
+const StoryCategory = ({ popular }: Props) => {
   const [activeCategory, setActiveCategory] = useState("sad");
 
   const StoryCategoriesButton = (cat: string) => {
@@ -34,24 +34,38 @@ const StoryCategory = ({popular}: Props ) => {
     );
   };
 
-
   return (
-   <View className="my-5">
-     <View className="flex-row mb-5 gap-2">
-      <Text className={`text-xl text-dark-white font-semibold font-MontserratAlt mr-2 ${popular}`}>Popular</Text>
-     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      {categories.map(StoryCategoriesButton )}
-    </ScrollView>
-     </View>
+    <View className="my-5">
+      <View className="flex-row mb-5 gap-2">
+        <Text
+          className={`text-xl text-dark-white font-semibold font-MontserratAlt mr-2 ${popular}`}
+        >
+          Popular
+        </Text>
 
-    {/* Stories List */}
-    <FlatList
+        {/* items scroll of of different types of stories */}
+        <FlatList
+          data={categories}
+          keyExtractor={(cat) => cat}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingHorizontal: 16 }}
+          renderItem={({ item }) => StoryCategoriesButton(item)}
+        />
+      </View>
+
+      {/* Stories List */}
+      <FlatList
         data={storiesData[activeCategory]}
         renderItem={StoriesItem}
         numColumns={2}
-      columnWrapperStyle={{ justifyContent: 'space-between', marginBottom: 18, marginTop: 10 }}
+        columnWrapperStyle={{
+          justifyContent: "space-between",
+          marginBottom: 18,
+          marginTop: 10,
+        }}
       />
-   </View>
+    </View>
   );
 };
 

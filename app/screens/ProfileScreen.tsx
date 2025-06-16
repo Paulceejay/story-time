@@ -15,61 +15,11 @@ import LogoutComponent from "../components/ui/LogoutComponent";
 import SavedStories from "../components/ui/SavedStories";
 import UpdateSettings from "../components/ui/UpdateSettings";
 import LoadingComponent from "../components/ui/LoadingComponent";
+import { useUserProfile } from "../hooks/useUserProfile";
 
 const ProfileScreen = () => {
-  const [user, setUser] = useState<any>(null);
-  const [profile, setProfile] = useState<any>(null);
   const [uploading, setUploading] = useState(false);
-  const [loading, setLaoading] = useState(true)
-
-  // Fetch user profile
-  useEffect(() => {
-    setLaoading(true)
-    const fetchProfile = async () => {
-      try {
-        const {
-          data: { user },
-          error,
-        } = await supabase.auth.getUser();
-
-        if (error || !user) {
-          Alert.alert("Error", "Please login to view profile");
-          return;
-        }
-
-        setUser(user);
-
-        const { data, error: profileError } = await supabase
-          .from("profiles")
-          .select("*")
-          .eq("id", user.id)
-          .single();
-
-        if (profileError) {
-          console.error("Profile fetch error:", profileError);
-          setProfile({
-            id: user.id,
-            avatar_url: null,
-            email: user.email,
-          });
-        } else {
-          setProfile(
-            data || {
-              id: user.id,
-              avatar_url: null,
-              email: user.email,
-            }
-          );
-        }
-      } catch (error) {
-        Alert.alert("Error", "Failed to load profile");
-      }finally {
-        setLaoading(false)
-      }
-    };
-
-    fetchProfile();
-  }, []);
+  const {user, profile, setProfile, loading} = useUserProfile()
 
   // Handle avatar upload
   const handleAvatarUpload = async () => {

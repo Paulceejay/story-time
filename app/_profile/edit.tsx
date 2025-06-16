@@ -3,12 +3,11 @@ import React, { useState, useEffect } from "react";
 import TextInputForm from "../components/ui/TextInputForm";
 import { supabase } from "@/app/lib/supabase-client";
 import { useRouter } from "expo-router";
+import { useUserProfile } from "../hooks/useUserProfile";
 
 const profileEdit = () => {
  const router = useRouter()
-
-  const [user, setUser] = useState<any>(null);
-  // Form states
+ const { user, profile, loading } = useUserProfile();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fullname, setFullname] = useState('');
@@ -16,33 +15,10 @@ const profileEdit = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const { data: { user }, error } = await supabase.auth.getUser();
-        
-        if (error || !user) {
-          setErrorMessage("Please login to view profile")
-          return;
-        }
-        
-        setUser(user);
-
-        const { data, error: profileError } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', user.id)
-          .single();
-        
-        setFullname(data?.full_name || '');
-
-      } catch (error) {
-        Alert.alert("Error", "Failed to load profile");
-        setErrorMessage("Failed to load profile")
-      }
-    };
-
-    fetchProfile();
-  }, []);
+    if (profile?.full_name) {
+      setFullname(profile.full_name);
+    }
+  }, [profile]);
 
   const validateName = () => {
     if (fullname.trim().length < 3) {
@@ -71,7 +47,7 @@ const profileEdit = () => {
   const verifyCurrentPassword = async () => {
     try {
       const { error } = await supabase.auth.signInWithPassword({
-        email: user.email,
+        email: user?.email,
         password: password,
       });
 
@@ -101,7 +77,7 @@ const profileEdit = () => {
       const { error } = await supabase
         .from('profiles')
         .upsert({
-          id: user.id,
+          id: user?.id,
           full_name: fullname.trim(),
           updated_at: new Date().toISOString()
         });

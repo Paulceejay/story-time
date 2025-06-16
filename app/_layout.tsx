@@ -45,6 +45,13 @@ export default function RootLayout() {
             presentation: "card",
           }}
         />
+        <Stack.Screen
+          name="_story"
+          options={{
+            headerShown: false,
+            presentation: "card",
+          }}
+        />
       </Stack>
 
       <StatusBar style="auto" />

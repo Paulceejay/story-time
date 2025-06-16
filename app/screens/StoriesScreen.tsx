@@ -38,15 +38,5 @@ const StoriesScreen = () => {
    </ScrollView>
   );
 };
-{/* <FlatList
-          data={storyTypeDatas}
-          renderItem={(item) => <StoryTypes item={item.name} />}
-          pagingEnabled
-          bounces={false}
-          horizontal
-          keyExtractor={(item: any) => item.id}
-          showsHorizontalScrollIndicator={false}
-          snapToAlignment="center"
-          decelerationRate={"fast"}
-        /> */}
+
 export default StoriesScreen;
