@@ -21,7 +21,7 @@ const TextInputForm = ({
         {textInputTitle}
       </Text>
       <TextInput
-        className={`${className} w-full h-16 px-4 my-2 justify-center items-center placeholder-dark-white bg-dark-formBg text-dark-white font-light`}
+        className={`${className} w-full h-16 px-4 my-2 justify-center items-center bg-[#FFFFFF0A] text-dark-white font-light`}
         placeholder={textInputTitle}
         placeholderTextColor="#FFFFFF"
         onChangeText={onChangeText}

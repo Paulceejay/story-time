@@ -2,6 +2,7 @@
   "expo": {
     "name": "story-time",
     "slug": "story-time",
+    "owner": "paulceejay",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -10,7 +11,7 @@
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/images/welcome-img.png",
-      "resizeMode": "cover", 
+      "resizeMode": "cover",
       "backgroundColor": "#000000"
     },
     "ios": {
@@ -21,7 +22,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.storytime"
     },
     "web": {
       "bundler": "metro",
@@ -39,7 +41,14 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "expo-secure-store"
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps._some_id_here_"
+        }
+      ],
+      "expo-secure-store",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true

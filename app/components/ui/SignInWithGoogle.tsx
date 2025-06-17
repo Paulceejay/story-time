@@ -1,29 +1,9 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { supabase } from "@/app/lib/supabase-client";
-
-const googleLogo = require("../../../assets/images/google-logo.webp")
 import { useRouter } from "expo-router";
 
-const SignInHandler = async () => {
-  const router = useRouter();
-  const { data: { user } } = await supabase.auth.getUser()
-
-
-const googleAvatar = user?.user_metadata?.avatar_url || user?.user_metadata?.picture
-const fullName = user?.user_metadata?.full_name
-const email = user?.email
-
-
-// await supabase.from('users').upsert({
-//   id: user.id,
-//   email,
-//   full_name: fullName,
-//   avatar_url: googleAvatar,
-// })
-
-  router.replace("/(tabs)");
-};
+const googleLogo = require("../../../assets/images/google-logo.webp")
 
 const SignInWithGoogle = () => {
   return (
