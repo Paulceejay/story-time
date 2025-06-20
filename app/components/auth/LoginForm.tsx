@@ -33,7 +33,7 @@ const LoginForm = () => {
 
   return (
     <View className="">
-      <Text className="text-dark-white text-[26px] font-semibold font-MontserratAlt">
+      <Text className="text-dark-white text-[26px] font-semibold font-MontserratAlt mb-10">
         Login
       </Text>
 

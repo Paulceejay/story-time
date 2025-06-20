@@ -45,7 +45,7 @@ const SignupForm = () => {
     }
 
     if (signUpError) {
-      setErrorMessage(signUpError.message); // Show Supabase error
+      setErrorMessage(signUpError.message);
       setTimeout(() => {
         setErrorMessage("");
       }, 4000);
@@ -57,7 +57,7 @@ const SignupForm = () => {
 
   return (
     <View className="mt-10">
-      <Text className="text-dark-white text-[26px] font-semibold font-MontserratAlt">
+      <Text className="text-dark-white text-[26px] font-semibold font-MontserratAlt mb-2">
         Create Account
       </Text>
 

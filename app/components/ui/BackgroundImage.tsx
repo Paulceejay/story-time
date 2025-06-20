@@ -21,13 +21,13 @@ const BackgroundImage = ({ children, className }: Props) => {
       {children}
       <LinearGradient
   colors={[
-    "rgba(0, 0, 0, 0.4)",   // previously 0.624
-    "rgba(0, 0, 0, 0.75)",  // previously 0.96
-    "rgba(0, 0, 0, 0.75)",  // previously 0.96
+    "rgba(0, 0, 0, 0.65)",   // previously 0.624
+    "rgba(0, 0, 0, 0)",  // previously 0.96
+    "rgba(0, 0, 0, 0)",  // previously 0.96
   ]}
-  locations={[0, 0.5248, 0.7306]}
-  start={{ x: 0.5, y: 0 }}
-  end={{ x: 0.5, y: 1 }}
+  locations={[0.65, 0, 0]}
+  start={{ x: 1, y: 0.8 }}
+  end={{ x: 1, y: 1 }}
   className="absolute inset-0"
       >
         {children}

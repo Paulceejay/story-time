@@ -1,52 +1,41 @@
-import * as WebBrowser from 'expo-web-browser';
-import * as AuthSession from 'expo-auth-session';
-import { supabase } from '../lib/supabase'; 
-import * as Google from 'expo-auth-session/providers/google';
-import { useEffect } from 'react';
-import { makeRedirectUri } from 'expo-auth-session';
-import { Alert } from 'react-native';
-
-WebBrowser.maybeCompleteAuthSession();
-
-const redirectUri = "https://auth.expo.io/paulceejay/story-time"
-
-const clientId = '533805357729-hqvg9qj8if91pabnsggqlfrmeld147th.apps.googleusercontent.com';
+// hooks/useGoogleAuth.ts
+import * as Google from "expo-auth-session/providers/google";
+import { useEffect } from "react";
+import { supabase } from "../lib/supabase";
+import { makeRedirectUri } from "expo-auth-session";
+import { Alert } from "react-native";
 
 export function useGoogleSignIn() {
-  const redirectUri = makeRedirectUri({
-    useProxy: true,
-  } as any );
-  
+
   const [request, response, promptAsync] = Google.useAuthRequest({
-    clientId: clientId,
-    redirectUri,
+    clientId: "533805357729-hqvg9qj8if91pabnsggqlfrmeld147th.apps.googleusercontent.com",
+    redirectUri: "https://auth.expo.io/@paulceejay/story-time",
     scopes: ["openid", "email", "profile"],
   });
 
   useEffect(() => {
-    console.log("Google Auth Response:", response);
-  
-    const signInWithGoogle = async () => {
-      if (response?.type === 'success') {
-        const { authentication } = response;
-  
-        const { data, error } = await supabase.auth.signInWithIdToken({
-          provider: 'google',
-          token: authentication?.idToken || '',
-        });
-  
-        if (error) {
-          Alert.alert('Supabase Sign-In Failed', error.message);
-        }
-      } else if (response?.type === 'error') {
-        Alert.alert('Google Login Failed', response.error?.message || 'Unknown error');
+    if (response?.type === "success") {
+      const { authentication } = response;
+      if (authentication?.accessToken) {
+        signInWithSupabase(authentication.accessToken);
       }
-    };
-  
-    signInWithGoogle();
+    }
   }, [response]);
+
+  const signInWithSupabase = async (accessToken: string) => {
+    const { data, error } = await supabase.auth.signInWithIdToken({
+      provider: "google",
+      token: accessToken,
+    });
+
+    if (error) {
+      console.error("Supabase sign-in error:", error.message);
+      Alert.alert("Error", "Supabase login failed");
+    }
+  };
 
   return {
     promptAsync,
     request,
-}};
+  };
+}
